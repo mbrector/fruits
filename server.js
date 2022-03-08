@@ -3,6 +3,7 @@ const express = require('express');
 const Fruit = require('./models/fruits');//NOTE: it must start with ./ if it's just a file, not an NPM package
 const app = express();
 const mongoose = require('mongoose')
+const PORT = process.env.PORT || 3000
 
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
@@ -80,6 +81,6 @@ mongoose.connection.once('open', ()=> {
     console.log('connected to mongo');
 });
 
-app.listen(3000, () => {
-    console.log('listening');
+app.listen(PORT, () => {
+    console.log('Out here grindin on', PORT);
 });
